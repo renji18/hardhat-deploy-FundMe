@@ -1,0 +1,36 @@
+{
+  "name": "hardhat2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sepolia": "npx hardhat run scripts/deploy.js --network sepolia",
+    "hardhat": "npx hardhat run scripts/deploy.js",
+    "localhost": "npx hardhat run scripts/deploy.js --network localhost",
+    "compile": "npx hardhat compile",
+    "defBlockNum": "npx hardhat block-number",
+    "sepoliaBlockNum": "npx hardhat block-number --network sepolia",
+    "node": "npx hardhat node",
+    "console": "npx hardhat console --network localhost",
+    "help": "npx hardhat",
+    "test": "npx hardhat test",
+    "coverage": "npx hardhat coverage",
+    "tags":"npx hardhat deploy --tags",
+    "deploy":"npx hardhat deploy --network"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@chainlink/contracts": "^0.6.1",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@^0.3.0-beta.13",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.13.0",
+    "hardhat-deploy": "^0.11.25"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
