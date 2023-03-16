@@ -10,14 +10,16 @@ const { developmentChains } = require("../../helperHardhatConfig");
       let mockV3Aggregator;
       const sendValue = ethers.utils.parseEther("1"); //1000000000000000000
 
-      this.beforeEach(async function () {
-        // we create a named account using getNamedAccounts().deployer, so that whenever we make any txn from a contract connected to demoAccount, it will be from that demoAccount account
+      this.beforeEach(async function () { 
+        // we create a named account using getNamedAccounts().deployer, so that whenever we make any txn from a contract connected to demoAccount, it will be from that demoAccount account -- ignore this, but I won't delete it!! You'll see why when creating projects
+
+        // we connect the default account from deployer in namedAccounts in hardhat.config.js, so that we can make txn from a contract connected to that account
         demoAccount = (await getNamedAccounts()).deployer;
 
         // deploys all contracts using hardhat-deploy
         await deployments.fixture(["all"]);
 
-        // whenever we call a func from fundMe, it will be from the demoAccount account we just created
+        // whenever we call a func from fundMe, it will be from the demoAccount account we just got access to from hardhat.config.js
         fundMe = await ethers.getContract("FundMe", demoAccount);
         mockV3Aggregator = await ethers.getContract(
           "MockV3Aggregator",

@@ -5,7 +5,11 @@ const { developmentChains, DECIMALS, INITIAL_ANSWER } = require('../helperHardha
 
 // we catch getNamedAccounts, deployments from hre(hardhat runtime environment)
 module.exports = async ( { getNamedAccounts, deployments }) => {
+  // deploy is used to deploy a contract which has been compiled
+  // deployments is a collection which has all the compiled contract, which can be accessed from deployments.get()
   const { deploy, log } = deployments
+  
+  // deployer is the account which is active and using the contract
   const { deployer } = await getNamedAccounts()
 
   // we check if the network is any of the custom specified developmentChains from helperHHardhatConfig.js
